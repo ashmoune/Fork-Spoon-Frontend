@@ -1,0 +1,120 @@
+/*              GENERAL RULES          */
+/*                                    */
+
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */
+}
+* {
+  box-sizing: border-box;
+}
+
+/*                  
+                     HEADER
+*/
+.fork-logo img {
+  width: 80px;
+  height: 80px;
+}
+
+/*            HOME PAGE                */
+/*                                    */
+/*                                   */
+
+/* HERO CONTAINER SECTION */
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.hero-container {
+  position: relative;
+}
+
+.img-container {
+  position: relative;
+}
+.search-bar {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+.search-bar input {
+  width: 200px;
+  padding: 5px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.overlay-text {
+  position: absolute;
+  color: #ffffff;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 35px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #00645a;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.results-map-container {
+  display: flex;
+}
+
+.results-container {
+  flex: 1;
+}
+
+.map-container {
+  /* flex: 1; */
+  margin-left: 20px;
+  position: fix;
+  margin-top: 20px;
+}
+
+.restaurant-picture img {
+  height: 170px;
+  width: 280px;
+  border-radius: 5px;
+}
+.restaurant {
+  margin-top: 20px;
+
+  height: 900px;
+  overflow: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.restaurant-container {
+  /* border: solid 2px black; */
+  display: flex;
+  margin-top: 40px;
+}
+
+.right-part {
+  width: 400px;
+  /* border: solid violet 2px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+.resto-address span {
+  margin-right: 6px;
+}
