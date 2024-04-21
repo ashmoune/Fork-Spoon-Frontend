@@ -7,6 +7,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
+  const [showMap, setShowMap] = useState(false);
 
   const handleSearch = async () => {
     setIsLoading(true);
@@ -15,6 +16,7 @@ const Home = () => {
         `http://localhost:3000/locations?text=${searchTerm}`
       );
       setResults(response.data.restaurants.data);
+      setShowMap(true);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -37,9 +39,10 @@ const Home = () => {
             type="text"
             name="search"
             value={searchTerm}
+            placeholder="A proximité, adresse, arrondissement"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button onClick={handleSearch}>Search</button>
+          <button onClick={handleSearch}>RECHERCHE</button>
         </div>
       </section>
       <section className="results-map-container">
@@ -56,16 +59,16 @@ const Home = () => {
                     </div>
                   </section>
                   <section className="right-part">
-                    <h2>{result.name}</h2>
-                    <div className="restaurant-style">
-                      {result.servesCuisine}
-                    </div>
                     <div className="restaurant-info">
+                      <h2>{result.name}</h2>
+                      <div className="restaurant-style">
+                        {result.servesCuisine}
+                      </div>
                       <div className="resto-address">
-                        <span>{result.address.street}</span>
-                        <span>{result.address.postalCode}</span>
-                        <span>{result.address.locality}</span>
-                        <span>{result.address.country}</span>
+                        <span>{result.address.street},</span>
+                        <span>{result.address.postalCode},</span>
+                        <span>{result.address.locality},</span>
+                        {/* <span>{result.address.country}</span> */}
                       </div>
 
                       <div>Prix moyen {result.priceRange} €</div>
@@ -81,7 +84,7 @@ const Home = () => {
           )}
         </div>
         <div className="map-container">
-          <RestaurantMap results={results} />
+          {showMap && <RestaurantMap results={results} />}
         </div>
       </section>
     </main>
