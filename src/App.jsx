@@ -7,6 +7,7 @@ import Home from "./Pages/Home";
 
 // import des components
 import Header from "./components/Header";
+import RestaurantsDetails from "./Pages/RestaurantsDetails";
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
         <Header></Header>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          {/* <Route path ></Route> */}
+          <Route
+            path="/restaurants/:restaurantId"
+            element={<RestaurantsDetails />}
+          ></Route>
           {/* <Route></Route>
       <Route></Route> */}
         </Routes>

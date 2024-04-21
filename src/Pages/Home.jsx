@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RestaurantMap from "../components/RestaurantMap";
 import axios from "axios";
 import imgHero from "../assets/fork-hero.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -52,33 +53,34 @@ const Home = () => {
           ) : (
             <div className="restaurant">
               {results.map((result) => (
-                <div className="restaurant-container" key={result.id}>
-                  <section className="left-part">
-                    <div className="restaurant-picture">
-                      <img src={result.mainPhoto.source} alt="" />{" "}
-                    </div>
-                  </section>
-                  <section className="right-part">
-                    <div className="restaurant-info">
-                      <h2>{result.name}</h2>
-                      <div className="restaurant-style">
-                        {result.servesCuisine}
+                <Link key={result.id} to={`/restaurants/${result.id}`}>
+                  <div className="restaurant-container">
+                    <section className="left-part">
+                      <div className="restaurant-picture">
+                        <img src={result.mainPhoto.source} alt="" />
                       </div>
-                      <div className="resto-address">
-                        <span>{result.address.street},</span>
-                        <span>{result.address.postalCode},</span>
-                        <span>{result.address.locality},</span>
-                        {/* <span>{result.address.country}</span> */}
+                    </section>
+                    <section className="right-part">
+                      <div className="restaurant-info">
+                        <h2>{result.name}</h2>
+                        <div className="restaurant-style">
+                          {result.servesCuisine}
+                        </div>
+                        <div className="resto-address">
+                          <span>{result.address.street},</span>
+                          <span>{result.address.postalCode},</span>
+                          <span>{result.address.locality},</span>
+                          {/* <span>{result.address.country}</span> */}
+                        </div>
+                        <div>Prix moyen {result.priceRange} €</div>
                       </div>
-
-                      <div>Prix moyen {result.priceRange} €</div>
-                    </div>
-                    <div className="ratings">
-                      <div>{result.aggregateRatings.thefork.ratingValue}</div>
-                      <div>{result.aggregateRatings.thefork.reviewCount}</div>
-                    </div>
-                  </section>
-                </div>
+                      <div className="ratings">
+                        <div>{result.aggregateRatings.thefork.ratingValue}</div>
+                        <div>{result.aggregateRatings.thefork.reviewCount}</div>
+                      </div>
+                    </section>
+                  </div>
+                </Link>
               ))}
             </div>
           )}
