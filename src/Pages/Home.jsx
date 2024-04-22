@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import RestaurantMap from "../components/RestaurantMap";
 import axios from "axios";
 import imgHero from "../assets/fork-hero.jpg";
 import { Link } from "react-router-dom";
+import RestaurantMap from "../components/RestaurantMap";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +32,6 @@ const Home = () => {
           <div className="overlay-text">
             Découvrez et réservez le meilleur restaurant
           </div>
-
           <img src={imgHero} alt="" />
         </div>
         <div className="search-bar">
@@ -43,7 +42,9 @@ const Home = () => {
             placeholder="A proximité, adresse, arrondissement"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button onClick={handleSearch}>RECHERCHE</button>
+          <span>
+            <button onClick={handleSearch}>RECHERCHE</button>
+          </span>
         </div>
       </section>
       <section className="results-map-container">
@@ -53,8 +54,15 @@ const Home = () => {
           ) : (
             <div className="restaurant">
               {results.map((result) => (
-                <Link key={result.id} to={`/restaurants/${result.id}`}>
+                <Link
+                  key={result.id}
+                  to={{
+                    pathname: `/restaurants/${result.id}`,
+                    state: { restaurant: result },
+                  }}
+                >
                   <div className="restaurant-container">
+                    {console.log(result)}
                     <section className="left-part">
                       <div className="restaurant-picture">
                         <img src={result.mainPhoto.source} alt="" />
@@ -70,7 +78,6 @@ const Home = () => {
                           <span>{result.address.street},</span>
                           <span>{result.address.postalCode},</span>
                           <span>{result.address.locality},</span>
-                          {/* <span>{result.address.country}</span> */}
                         </div>
                         <div>Prix moyen {result.priceRange} €</div>
                       </div>

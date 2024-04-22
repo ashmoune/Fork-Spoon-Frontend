@@ -3,32 +3,56 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const RestaurantDetails = () => {
-  const { restaurantId } = useParams();
   const [restaurant, setRestaurant] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchRestaurantDetails = async () => {
+      if (!id) {
+        setError;
+        setIsLoading(false);
+        return;
+      }
+      setIsLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:3000/restaurants/${restaurantId}`
+          `http://localhost:3000/restaurants/${id}`
         );
-        setRestaurant(response.data);
+        console.log(response.data);
+        setRestaurant(response.data.restaurant);
+        setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching restaurant details:", error);
+        setError(error.response.data.message);
+        setIsLoading(false);
       }
     };
 
     fetchRestaurantDetails();
-  }, [restaurantId]);
+  }, [id]);
 
-  if (!restaurant) {
+  if (isLoading) {
     return <p>Loading...</p>;
   }
 
   return (
     <div>
-      <h2>{restaurant.name}</h2>
-      <p>{restaurant.description}</p>
+      <div className="restaurant-container">
+        <img
+          src={restaurant.data.restaurant.image}
+          alt={restaurant.data.restaurant.name}
+        />
+        <h3>{restaurant.data.restaurant.name}</h3>
+        <p>{restaurant.data.restaurant.servesCuisine}</p>
+        <p>
+          {restaurant.data.restaurant.address.street},
+          {restaurant.data.restaurant.address.zipCode},
+          {restaurant.data.restaurant.address.locality},
+          {restaurant.data.restaurant.address.country}
+        </p>
+        <p>{restaurant.data.restaurant.priceRange} €</p>
+      </div>
     </div>
   );
 };
