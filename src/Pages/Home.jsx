@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import imgHero from "../assets/fork-hero.jpg";
 import { Link } from "react-router-dom";
+import Pagination from "../components/Pagination";
 import RestaurantMap from "../components/RestaurantMap";
 
 const Home = () => {
@@ -9,13 +10,17 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
   const [showMap, setShowMap] = useState(false);
+  const [pageNum, setPageNum] = useState(1);
 
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(
-        `http://localhost:3000/locations?text=${searchTerm}`
-      );
+      const response = await axios.get(`http://localhost:3000/locations`, {
+        params: {
+          text: searchTerm,
+          pageNumber: pageNum,
+        },
+      });
       setResults(response.data.restaurants.data);
       setShowMap(true);
     } catch (error) {
@@ -23,6 +28,20 @@ const Home = () => {
     } finally {
       setIsLoading(false);
     }
+  }, [searchTerm, pageNum]);
+
+  useEffect(() => {
+    handleSearch();
+  }, [handleSearch]);
+
+  const handlePageChange = (newPageNumber) => {
+    setPageNum(newPageNumber);
+    handleSearch();
+  };
+
+  const handleSearchButtonClick = () => {
+    setPageNum(1);
+    handleSearch();
   };
 
   return (
@@ -43,7 +62,7 @@ const Home = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <span>
-            <button onClick={handleSearch}>RECHERCHE</button>
+            <button onClick={handleSearchButtonClick}>RECHERCHE</button>
           </span>
         </div>
       </section>
@@ -62,7 +81,6 @@ const Home = () => {
                   }}
                 >
                   <div className="restaurant-container">
-                    {console.log(result)}
                     <section className="left-part">
                       <div className="restaurant-picture">
                         <img src={result.mainPhoto.source} alt="" />
@@ -96,8 +114,12 @@ const Home = () => {
           {showMap && <RestaurantMap results={results} />}
         </div>
       </section>
+      <Pagination
+        pageNum={pageNum}
+        setPageNum={setPageNum}
+        onPageChange={handlePageChange}
+      />
     </main>
   );
 };
-
 export default Home;

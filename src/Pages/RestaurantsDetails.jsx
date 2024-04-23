@@ -5,13 +5,11 @@ import { useParams } from "react-router-dom";
 const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     const fetchRestaurantDetails = async () => {
       if (!id) {
-        setError;
         setIsLoading(false);
         return;
       }
@@ -24,7 +22,6 @@ const RestaurantDetails = () => {
         setRestaurant(response.data.restaurant);
         setIsLoading(false);
       } catch (error) {
-        setError(error.response.data.message);
         setIsLoading(false);
       }
     };
@@ -36,25 +33,36 @@ const RestaurantDetails = () => {
     return <p>Loading...</p>;
   }
 
+  if (!restaurant) {
+    return null;
+  }
+
   return (
     <div>
-      <div className="restaurant-container">
-        <img
-          src={restaurant.data.restaurant.image}
-          alt={restaurant.data.restaurant.name}
-        />
+      <div>
         <h3>{restaurant.data.restaurant.name}</h3>
         <p>{restaurant.data.restaurant.servesCuisine}</p>
         <p>
           {restaurant.data.restaurant.address.street},
           {restaurant.data.restaurant.address.zipCode},
           {restaurant.data.restaurant.address.locality},
-          {restaurant.data.restaurant.address.country}
         </p>
-        <p>{restaurant.data.restaurant.priceRange} €</p>
+        <p>{restaurant.data.restaurant.phone}</p>
+        <p>{restaurant.data.restaurant.averagePrice} €</p>
+        <p>{restaurant.data.restaurant.chefName}</p>
+        <p>{restaurant.data.restaurant.additionalProperty.transport}</p>
+        <p>{restaurant.data.restaurant.additionalProperty.parking}</p>
+      </div>
+      <div className="restaurant-container">
+        {restaurant.data.restaurant.photos.map((photo) => {
+          return (
+            <div key={photo.src}>
+              <img src={photo.src} alt={restaurant.data.restaurant.name} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 };
-
 export default RestaurantDetails;
