@@ -6,12 +6,14 @@ import Pagination from "../components/Pagination";
 import RestaurantMap from "../components/RestaurantMap";
 
 const Home = () => {
+  // creation des states
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
   const [showMap, setShowMap] = useState(false);
   const [pageNum, setPageNum] = useState(1);
 
+  // on utilise useCallback pour éviter le warning eslint sur le tab de dépendance
   const handleSearch = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -30,15 +32,18 @@ const Home = () => {
     }
   }, [searchTerm, pageNum]);
 
+  // on utilise useEffect pour appeler handleSearch à chaque changement de searchTerm ou pageNum
   useEffect(() => {
     handleSearch();
   }, [handleSearch]);
 
+  // Mise à jour de pageNum
   const handlePageChange = (newPageNumber) => {
     setPageNum(newPageNumber);
     handleSearch();
   };
 
+  // Mise à jour de la recherche
   const handleSearchButtonClick = () => {
     setPageNum(1);
     handleSearch();

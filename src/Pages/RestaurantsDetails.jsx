@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Reviews from "../components/reviews";
 
 const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
@@ -62,6 +63,7 @@ const RestaurantDetails = () => {
           );
         })}
       </div>
+      <Reviews />
     </div>
   );
 };
