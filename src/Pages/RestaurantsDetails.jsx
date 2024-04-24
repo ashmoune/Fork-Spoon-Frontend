@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import Reviews from "../components/reviews";
+import Reviews from "../components/Reviews";
 
 const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
@@ -20,6 +20,7 @@ const RestaurantDetails = () => {
           `http://localhost:3000/restaurants/${id}`
         );
         console.log(response.data);
+
         setRestaurant(response.data.restaurant);
         setIsLoading(false);
       } catch (error) {
@@ -38,22 +39,9 @@ const RestaurantDetails = () => {
     return null;
   }
 
+  const restaurantData = restaurant.data.restaurant;
   return (
     <div>
-      <div>
-        <h3>{restaurant.data.restaurant.name}</h3>
-        <p>{restaurant.data.restaurant.servesCuisine}</p>
-        <p>
-          {restaurant.data.restaurant.address.street},
-          {restaurant.data.restaurant.address.zipCode},
-          {restaurant.data.restaurant.address.locality},
-        </p>
-        <p>{restaurant.data.restaurant.phone}</p>
-        <p>{restaurant.data.restaurant.averagePrice} €</p>
-        <p>{restaurant.data.restaurant.chefName}</p>
-        <p>{restaurant.data.restaurant.additionalProperty.transport}</p>
-        <p>{restaurant.data.restaurant.additionalProperty.parking}</p>
-      </div>
       <div className="restaurant-container">
         {restaurant.data.restaurant.photos.map((photo) => {
           return (
@@ -62,6 +50,19 @@ const RestaurantDetails = () => {
             </div>
           );
         })}
+      </div>
+      <div>
+        <h3>{restaurantData.name}</h3>
+        <p>{restaurantData.servesCuisine}</p>
+        <p>
+          {restaurantData.address.street},{restaurantData.address.zipCode},
+          {restaurantData.address.locality},
+        </p>
+        <p>{restaurantData.phone}</p>
+        <p>{restaurantData.averagePrice} €</p>
+        <p>{restaurantData.chefName}</p>
+        <p>{restaurantData.additionalProperty.transport}</p>
+        <p>{restaurantData.additionalProperty.parking}</p>
       </div>
       <Reviews />
     </div>

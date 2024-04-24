@@ -4,6 +4,7 @@ import imgHero from "../assets/fork-hero.jpg";
 import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import RestaurantMap from "../components/RestaurantMap";
+import SearchBar from "../components/SearchBar";
 
 const Home = () => {
   // creation des states
@@ -58,18 +59,11 @@ const Home = () => {
           </div>
           <img src={imgHero} alt="" />
         </div>
-        <div className="search-bar">
-          <input
-            type="text"
-            name="search"
-            value={searchTerm}
-            placeholder="A proximité, adresse, arrondissement"
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <span>
-            <button onClick={handleSearchButtonClick}>RECHERCHE</button>
-          </span>
-        </div>
+        <SearchBar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          handleSearchButtonClick={handleSearchButtonClick}
+        />
       </section>
       <section className="results-map-container">
         <div className="results-container">

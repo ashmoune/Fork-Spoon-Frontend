@@ -8,7 +8,7 @@ import Home from "./Pages/Home";
 // import des components
 import Header from "./components/Header";
 import RestaurantsDetails from "./Pages/RestaurantsDetails";
-import reviews from "./components/reviews";
+// import Reviews from "./components/Reviews";
 function App() {
   return (
     <>

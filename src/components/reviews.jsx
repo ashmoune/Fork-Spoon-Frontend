@@ -41,12 +41,12 @@ const Reviews = () => {
           return (
             <div key={review.id}>
               <p>{review.review.reviewBody}</p>
+              <p>{review.ratingValue}</p>
               <div>
                 {review.photos.map((photo) => {
                   return <img src={photo.photoUrl} key={photo.id} alt="" />;
                 })}
               </div>
-              <p>{review.ratingValue}</p>
             </div>
           );
         })}
