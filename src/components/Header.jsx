@@ -6,19 +6,20 @@ const Header = ({ searchTerm, setSearchTerm, handleSearchButtonClick }) => {
   const location = useLocation();
   return (
     <>
-      <div className="fork-logo">
-        <Link to="/">
-          <img src={Logo} alt="" />
-        </Link>
-      </div>
-
-      <div>
+      <div className="header container">
+        <div className="fork-logo">
+          <Link to="/">
+            <img src={Logo} alt="" />
+          </Link>
+        </div>
         {location.pathname.includes("/restaurants/") && (
-          <SearchBar
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            handleSearchButtonClick={handleSearchButtonClick}
-          />
+          <div className="search-bar-header">
+            <SearchBar
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              handleSearchButtonClick={handleSearchButtonClick}
+            />
+          </div>
         )}
       </div>
     </>

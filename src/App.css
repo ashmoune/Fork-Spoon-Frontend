@@ -1,12 +1,15 @@
 /*              GENERAL RULES          */
 /*                                    */
 
-body {
+.container {
   font-family: roboto, sans-serif;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   /* text-align: center; */
+}
+body {
+  font-family: roboto, sans-serif;
 }
 
 * {
@@ -18,9 +21,26 @@ button input {
 /*                  
                      HEADER
 */
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* border: solid red 2px; */
+}
+
 .fork-logo img {
   width: 80px;
   height: 80px;
+}
+.fork-logo {
+  width: 80px;
+}
+.header .search-bar {
+  border: solid 1px grey;
+  /* margin-top: -100px; */
+  position: relative;
+  margin-left: 20%;
+  margin-top: 10px;
 }
 
 /*            HOME PAGE                */
@@ -115,13 +135,14 @@ input:focus {
 .restaurant-container {
   /* border: solid 2px black; */
   display: flex;
-  margin-top: 40px;
+  margin-top: 20px;
 }
-restaurant-info {
+.restaurant-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 10px;
+  border: solid 2px green;
 }
 .restaurant-info h2 {
   margin-top: 5px;
@@ -147,4 +168,46 @@ restaurant-info {
 .ratings > div {
   margin-top: 8px;
   margin-bottom: 20px;
+}
+
+/*    restaurantsDetails */
+.restaurant-container {
+  /* display: flex; */
+  overflow: hidden;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  width: auto;
+  margin-left: -32px;
+}
+.details-restaurant-picture img {
+  height: 300px;
+  width: auto;
+  object-fit: cover;
+}
+.resto-details-info-left {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+.resto-details-info-left p {
+  color: #00645a;
+}
+
+.restaurant-details-info {
+  display: flex;
+  height: 300px;
+  width: auto;
+  /* border: #00645a solid 2px; */
+  margin-bottom: 20px;
+}
+.resto-details-map {
+  /* max-height: 200px; */
+  /* border: solid black 2px; */
+  flex: 1;
+}
+.comment {
+  margin-top: 10px;
+  margin-right: 10px;
 }

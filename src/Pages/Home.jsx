@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import RestaurantMap from "../components/RestaurantMap";
 import SearchBar from "../components/SearchBar";
+import NearbyRestaurants from "../components/NearbyRestaurants";
 
 const Home = () => {
   // creation des states
@@ -65,12 +66,13 @@ const Home = () => {
           handleSearchButtonClick={handleSearchButtonClick}
         />
       </section>
+      {!showMap && !searchTerm && <NearbyRestaurants />}
       <section className="results-map-container">
         <div className="results-container">
           {isLoading ? (
             <p>Loading..please wait</p>
           ) : (
-            <div className="restaurant">
+            <div className="restaurant container">
               {results.map((result) => (
                 <Link
                   key={result.id}
@@ -99,7 +101,9 @@ const Home = () => {
                         <div>Prix moyen {result.priceRange} €</div>
                       </div>
                       <div className="ratings">
-                        <div>{result.aggregateRatings.thefork.ratingValue}</div>
+                        <div>
+                          {result.aggregateRatings.thefork.ratingValue}/ 10
+                        </div>
                         <div>{result.aggregateRatings.thefork.reviewCount}</div>
                       </div>
                     </section>
@@ -110,7 +114,9 @@ const Home = () => {
           )}
         </div>
         <div className="map-container">
-          {showMap && <RestaurantMap results={results} />}
+          {showMap && (
+            <RestaurantMap results={results} height="900px" width="400px" />
+          )}
         </div>
       </section>
       <Pagination

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-const RestaurantMap = ({ results }) => {
+const RestaurantMap = ({ results, height, width }) => {
   useEffect(() => {
     const map = L.map("map").setView([48.8566, 2.3522], 13);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -27,7 +27,7 @@ const RestaurantMap = ({ results }) => {
     };
   }, [results]);
 
-  return <div id="map" style={{ height: "900px", width: "400px" }} />;
+  return <div id="map" style={{ height, width }} />;
 };
 
 export default RestaurantMap;

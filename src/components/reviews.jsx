@@ -6,6 +6,7 @@ const Reviews = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
+  const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -21,6 +22,12 @@ const Reviews = () => {
         setReviews(response.data.reviews);
         console.log(response.data.reviews);
         setIsLoading(false);
+
+        const allPhotos =
+          response.data.reviews.data.restaurantRatingsList.ratings.map(
+            (review) => review.photos
+          );
+        setPhotos(allPhotos);
       } catch (error) {
         setIsLoading(false);
       }
@@ -42,13 +49,14 @@ const Reviews = () => {
             <div key={review.id}>
               <p>{review.review.reviewBody}</p>
               <p>{review.ratingValue}</p>
-              <div>
-                {review.photos.map((photo) => {
-                  return <img src={photo.photoUrl} key={photo.id} alt="" />;
-                })}
-              </div>
             </div>
           );
+        })}
+      </div>
+      <div>
+        <h2>Photos des utilisateurs</h2>
+        {photos.map((photo) => {
+          return <img src={photo.photoUrl} key={photo.id} alt="" />;
         })}
       </div>
     </div>
