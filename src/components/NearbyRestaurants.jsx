@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import restoProx from "../assets/restopop.webp";
+import Restaurants from "./Restaurants";
 
 const NearbyRestaurants = () => {
   // import  des states
@@ -74,12 +75,11 @@ const NearbyRestaurants = () => {
         <img src={restoProx} alt="restoProx" />
       </div>
       <h2> Restaurants à proximité de chez vous</h2>
-      {restaurants.map((restaurant) => (
-        <div key={restaurant.id}>
-          <h3>{restaurant.name}</h3>
-          {/* Display other restaurant details */}
-        </div>
-      ))}
+      <div className="nearby-resto-parent">
+        {restaurants.map((restaurant) => (
+          <Restaurants key={restaurant.id} result={restaurant} />
+        ))}
+      </div>
     </div>
   );
 };

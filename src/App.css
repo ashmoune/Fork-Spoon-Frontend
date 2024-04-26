@@ -1,6 +1,9 @@
 /*              GENERAL RULES          */
 /*                                    */
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .container {
   font-family: roboto, sans-serif;
   max-width: 1280px;
@@ -10,6 +13,7 @@
 }
 body {
   font-family: roboto, sans-serif;
+  color: #272a2f;
 }
 
 * {
@@ -142,7 +146,7 @@ input:focus {
   flex-direction: column;
   justify-content: space-between;
   margin-left: 10px;
-  border: solid 2px green;
+  /* border: solid 2px green; */
 }
 .restaurant-info h2 {
   margin-top: 5px;
@@ -210,4 +214,32 @@ input:focus {
 .comment {
   margin-top: 10px;
   margin-right: 10px;
+}
+.nearby-resto-parent {
+  display: flex;
+  margin-top: 20px;
+  overflow: hidden;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.restaurant-container-nearby {
+  /* border: solid 2px black; */
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.right-part-nearby {
+  width: 100%;
+
+  /* border: solid violet 2px; */
+  display: flex;
+  flex-direction: column;
+}
+.restaurant-info-nearby {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: solid 2px green; */
 }

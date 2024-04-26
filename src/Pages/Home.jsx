@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import imgHero from "../assets/fork-hero.jpg";
-import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import RestaurantMap from "../components/RestaurantMap";
 import SearchBar from "../components/SearchBar";
 import NearbyRestaurants from "../components/NearbyRestaurants";
-
+import Restaurants from "../components/Restaurants";
 const Home = () => {
   // creation des states
   const [isLoading, setIsLoading] = useState(false);
@@ -74,41 +73,11 @@ const Home = () => {
           ) : (
             <div className="restaurant container">
               {results.map((result) => (
-                <Link
+                <Restaurants
                   key={result.id}
-                  to={{
-                    pathname: `/restaurants/${result.id}`,
-                    state: { restaurant: result },
-                  }}
-                >
-                  <div className="restaurant-container">
-                    <section className="left-part">
-                      <div className="restaurant-picture">
-                        <img src={result.mainPhoto.source} alt="" />
-                      </div>
-                    </section>
-                    <section className="right-part">
-                      <div className="restaurant-info">
-                        <h2>{result.name}</h2>
-                        <div className="restaurant-style">
-                          {result.servesCuisine}
-                        </div>
-                        <div className="resto-address">
-                          <span>{result.address.street},</span>
-                          <span>{result.address.postalCode},</span>
-                          <span>{result.address.locality},</span>
-                        </div>
-                        <div>Prix moyen {result.priceRange} €</div>
-                      </div>
-                      <div className="ratings">
-                        <div>
-                          {result.aggregateRatings.thefork.ratingValue}/ 10
-                        </div>
-                        <div>{result.aggregateRatings.thefork.reviewCount}</div>
-                      </div>
-                    </section>
-                  </div>
-                </Link>
+                  result={result}
+                  showMap={showMap}
+                />
               ))}
             </div>
           )}
