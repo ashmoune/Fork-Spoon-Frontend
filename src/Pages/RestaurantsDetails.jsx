@@ -57,34 +57,35 @@ const RestaurantDetails = () => {
         <div className="resto-details-info-left">
           <h2>{restaurantData.name}</h2>
           <p>
-            <FontAwesomeIcon icon="utensils" />
+            <FontAwesomeIcon className="icon" icon="utensils" />
             {restaurantData.servesCuisine}
           </p>
           <p>
-            <FontAwesomeIcon icon="location-pin" />
+            <FontAwesomeIcon className="icon" icon="location-pin" />
             {restaurantData.address.street},{restaurantData.address.zipCode},
             {restaurantData.address.locality},
           </p>
           <p>{restaurantData.phone}</p>
           <p>
-            <FontAwesomeIcon icon="money-bill" />
+            <FontAwesomeIcon className="icon" icon="money-bill" />
             {restaurantData.averagePrice} €
           </p>
           <p>
-            <FontAwesomeIcon icon="chess-rook" /> Chef {restaurantData.chefName}
+            <FontAwesomeIcon className="icon" icon="chess-rook" /> Chef{" "}
+            {restaurantData.chefName}
           </p>
           <p>
-            <FontAwesomeIcon icon="train-subway" />
+            <FontAwesomeIcon className="icon" icon="train-subway" />
             {restaurantData.additionalProperty.transport}
           </p>
           <p>
-            <FontAwesomeIcon icon="square-parking" />
+            <FontAwesomeIcon className="icon" icon="square-parking" />
             {restaurantData.additionalProperty.parking}
           </p>
         </div>
 
         <div className="comment">
-          <FontAwesomeIcon icon="comment" />
+          <FontAwesomeIcon className="icon" icon="comment" />
           <p>{restaurantData.aggregateRatings.thefork.reviewCount} avis</p>
         </div>
         <div className="resto-details-map">

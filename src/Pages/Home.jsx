@@ -25,6 +25,7 @@ const Home = () => {
         },
       });
       setResults(response.data.restaurants.data);
+      console.log(response.data.restaurants.data);
       setShowMap(true);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -65,6 +66,7 @@ const Home = () => {
           handleSearchButtonClick={handleSearchButtonClick}
         />
       </section>
+      {/* on affiche les restaurants à proximité si le user n'a pas fait de recherches */}
       {!showMap && !searchTerm && <NearbyRestaurants />}
       <section className="results-map-container">
         <div className="results-container">
@@ -84,7 +86,12 @@ const Home = () => {
         </div>
         <div className="map-container">
           {showMap && (
-            <RestaurantMap results={results} height="900px" width="400px" />
+            <RestaurantMap
+              results={results}
+              height="900px"
+              width="400px"
+              // selectedResetaurant={restaurantData}
+            />
           )}
         </div>
       </section>

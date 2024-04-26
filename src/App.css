@@ -195,8 +195,10 @@ input:focus {
   justify-content: space-between;
   margin-left: 10px;
 }
-.resto-details-info-left p {
+.icon {
   color: #00645a;
+  margin-right: 5px;
+  /* margin-bottom: 5px; */
 }
 
 .restaurant-details-info {

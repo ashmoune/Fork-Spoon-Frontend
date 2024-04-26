@@ -24,7 +24,7 @@ const Reviews = () => {
         setIsLoading(false);
 
         const allPhotos =
-          response.data.reviews.data.restaurantRatingsList.ratings.map(
+          response.data.reviews.data.restaurantRatingsList.ratings.flatMap(
             (review) => review.photos
           );
         setPhotos(allPhotos);
@@ -55,9 +55,12 @@ const Reviews = () => {
       </div>
       <div>
         <h2>Photos des utilisateurs</h2>
-        {photos.map((photo) => {
-          return <img src={photo.photoUrl} key={photo.id} alt="" />;
-        })}
+        {
+          photos &&
+            photos.map((photo) => {
+              return <img src={photo.photoUrl} key={photo.id} alt="" />;
+            }) // Add a comma here
+        }
       </div>
     </div>
   );
