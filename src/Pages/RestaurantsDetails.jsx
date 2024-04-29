@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Reviews from "../components/Reviews";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RestaurantMap from "../components/RestaurantMap";
+import { TailSpin } from "react-loader-spinner";
 
 const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
@@ -34,7 +35,18 @@ const RestaurantDetails = () => {
   }, [id]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader">
+        <TailSpin
+          visible={true}
+          height="200"
+          width="200"
+          color="#00645a"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+        />
+      </div>
+    );
   }
 
   if (!restaurant) {

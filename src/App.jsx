@@ -18,7 +18,6 @@ import Home from "./Pages/Home";
 import Header from "./components/Header";
 import RestaurantsDetails from "./Pages/RestaurantsDetails";
 
-// import Reviews from "./components/Reviews";
 library.add(
   faLocationPin,
   faUtensils,

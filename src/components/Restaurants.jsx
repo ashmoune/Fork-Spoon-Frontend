@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Restaurant = ({ result, showMap }) => {
   return (
@@ -35,7 +36,12 @@ const Restaurant = ({ result, showMap }) => {
           </div>
           <div className="ratings">
             <div>{result.aggregateRatings.thefork.ratingValue}/ 10</div>
-            <div>{result.aggregateRatings.thefork.reviewCount}</div>
+            <div>
+              {result.aggregateRatings.thefork.reviewCount}
+              <span>
+                <FontAwesomeIcon icon="fa-comment" />
+              </span>
+            </div>
           </div>
         </section>
       </div>

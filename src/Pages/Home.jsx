@@ -6,6 +6,7 @@ import RestaurantMap from "../components/RestaurantMap";
 import SearchBar from "../components/SearchBar";
 import NearbyRestaurants from "../components/NearbyRestaurants";
 import Restaurants from "../components/Restaurants";
+import { TailSpin } from "react-loader-spinner";
 const Home = () => {
   // creation des states
   const [isLoading, setIsLoading] = useState(false);
@@ -71,7 +72,15 @@ const Home = () => {
       <section className="results-map-container">
         <div className="results-container">
           {isLoading ? (
-            <p>Loading..please wait</p>
+            <div className="loader">
+              <TailSpin
+                height="200"
+                width="200"
+                color="#00645a"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+              />
+            </div>
           ) : (
             <div className="restaurant container">
               {results.map((result) => (

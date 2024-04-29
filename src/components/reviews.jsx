@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { TailSpin } from "react-loader-spinner";
 
 const Reviews = () => {
   const { id } = useParams();
@@ -37,7 +38,18 @@ const Reviews = () => {
   }, [id]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader">
+        <TailSpin
+          visible={true}
+          height="200"
+          width="200"
+          color="#00645a"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+        />
+      </div>
+    );
   }
 
   return (

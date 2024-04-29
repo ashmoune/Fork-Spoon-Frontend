@@ -245,3 +245,8 @@ input:focus {
   justify-content: space-between;
   /* border: solid 2px green; */
 }
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
