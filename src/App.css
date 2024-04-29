@@ -250,3 +250,49 @@ input:focus {
   justify-content: center;
   align-items: center;
 }
+
+/*      REVIEWS     */
+
+.avatar img {
+  border-radius: 50%;
+  height: 30px;
+  /* width: 20px; */
+}
+.reviewer span {
+  margin-left: 2px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.review {
+  height: 100%;
+  line-height: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.review-body {
+  width: 450px;
+}
+.review-rating {
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 8px;
+}
+.firstName {
+  margin-left: 5px;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4px;
+  margin-top: 20px;
+}
+.photo-grid img {
+  object-fit: cover;
+  width: 400px;
+  height: 200px;
+}

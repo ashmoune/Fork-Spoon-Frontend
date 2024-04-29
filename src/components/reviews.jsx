@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { TailSpin } from "react-loader-spinner";
+import avatarImg from "../assets/avatar-img.jpg";
 
 const Reviews = () => {
   const { id } = useParams();
@@ -54,25 +55,38 @@ const Reviews = () => {
 
   return (
     <div>
-      <h3>Reviews</h3>
+      <h3 className="container">Avis</h3>
       <div>
         {reviews.data.restaurantRatingsList?.ratings.map((review) => {
           return (
-            <div key={review.id}>
-              <p>{review.review.reviewBody}</p>
-              <p>{review.ratingValue}</p>
+            <div className="review container" key={review.id}>
+              <div className="reviewer">
+                <div className="avatar">
+                  <img
+                    src={
+                      review.reviewer.avatar ===
+                      "https://graph.facebook.comnull/"
+                        ? avatarImg
+                        : review.reviewer.avatar
+                    }
+                    alt="avatar"
+                  />
+                </div>
+                <span className="firstName">{review.reviewer.firstName}</span>
+                <span> {review.reviewer.lastName}</span>
+              </div>
+              <p className="review-body">{review.review.reviewBody}</p>
+              <p className="review-rating">{review.ratingValue} /10</p>
             </div>
           );
         })}
       </div>
-      <div>
-        <h2>Photos des utilisateurs</h2>
-        {
-          photos &&
-            photos.map((photo) => {
-              return <img src={photo.photoUrl} key={photo.id} alt="" />;
-            }) // Add a comma here
-        }
+      <h2 className="container">Photos des utilisateurs</h2>
+      <div className="photo-grid container">
+        {photos &&
+          photos.map((photo) => {
+            return <img src={photo.photoUrl} key={photo.id} alt="" />;
+          })}
       </div>
     </div>
   );
