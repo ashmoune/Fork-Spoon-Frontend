@@ -78,7 +78,7 @@ input:focus {
 .restaurant {
   margin-top: 20px;
 
-  height: 900px;
+  height: 100%;
   overflow: hidden;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -119,4 +119,47 @@ input:focus {
 .ratings > div {
   margin-top: 8px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 760px) {
+  .search-bar input {
+    width: 250px;
+  }
+
+  .results-map-container {
+    flex-direction: column;
+  }
+
+  .restaurant-picture img {
+    height: 120px;
+    width: 200px;
+  }
+}
+@media (max-width: 620px) {
+  .overlay-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+  }
+  .overlay-text {
+    margin-left: 10%;
+    width: 100%;
+    padding-top: 25px;
+    font-size: 28px;
+    white-space: normal;
+    font-size: 20px;
+  }
+  .search-bar input {
+    width: auto;
+  }
+  .restaurant-picture img {
+    height: 100px;
+    width: 170px;
+  }
 }

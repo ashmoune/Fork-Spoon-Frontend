@@ -31,3 +31,24 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 1024px) {
+  .restaurants-proxim img {
+    width: 100%;
+  }
+}
+@media (max-width: 760px) {
+  .restaurant-container-nearby {
+    margin-bottom: 20px;
+  }
+  .restaurants-proxim img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .restaurant-container-nearby {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
