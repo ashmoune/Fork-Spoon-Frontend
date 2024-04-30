@@ -19,3 +19,25 @@
   margin-left: 20%;
   margin-top: 10px;
 }
+
+@media (max-width: 684px) {
+  .header .search-bar {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 580px) {
+  .header .search-bar {
+    margin-left: 0;
+    max-width: 340px;
+  }
+  .header {
+    max-width: 100%;
+  }
+  .fork-logo img {
+    display: none;
+  }
+  .container {
+    margin: 0;
+  }
+}

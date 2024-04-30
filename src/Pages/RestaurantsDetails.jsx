@@ -56,7 +56,7 @@ const RestaurantDetails = () => {
 
   const restaurantData = restaurant.data.restaurant;
   return (
-    <div>
+    <div className="main-restaurantsDetails">
       <div className="restaurant-container container">
         {restaurant.data.restaurant.photos.map((photo) => {
           return (

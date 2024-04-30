@@ -55,7 +55,7 @@ const Reviews = () => {
   }
 
   return (
-    <div>
+    <div className="main-reviews">
       <h3 className="container">Avis</h3>
       <div>
         {reviews.data.restaurantRatingsList?.ratings.map((review) => {

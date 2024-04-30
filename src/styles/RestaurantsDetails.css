@@ -3,7 +3,7 @@
   overflow: hidden;
   overflow-x: scroll;
   scrollbar-width: none;
-  width: auto;
+  width: 100%;
   margin-left: -32px;
 }
 .details-restaurant-picture img {
@@ -39,4 +39,54 @@
 .comment {
   margin-top: 10px;
   margin-right: 10px;
+}
+
+@media (max-width: 760px) {
+  .restaurant-details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    min-height: 600px;
+  }
+  .resto-details-info-left {
+    height: 350px;
+  }
+  .comment {
+    margin-left: 10px;
+  }
+  .resto-details-map {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .main-restaurantsDetails {
+    width: 380px;
+    background-color: red solid 2px;
+  }
+  .comment {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+  }
+  .details-restaurant-picture img {
+    width: 100%;
+  }
+
+  .resto-details-info-left {
+    height: auto;
+    width: auto;
+    /* min-height: 600px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .details-restaurant-picture img {
+    width: auto;
+  }
 }
