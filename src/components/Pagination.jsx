@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Pagination.css";
 
 const Pagination = ({ pageNum, setPageNum, onPageChange }) => {
   const handleNextPage = () => {
@@ -18,7 +19,7 @@ const Pagination = ({ pageNum, setPageNum, onPageChange }) => {
       <button onClick={handlePrevPage} disabled={pageNum === 1}>
         Previous
       </button>
-      <span>{pageNum}</span>
+      <span style={{ fontWeight: "bold", marginTop: "16px" }}>{pageNum}</span>
       <button onClick={handleNextPage}>Next</button>
     </div>
   );

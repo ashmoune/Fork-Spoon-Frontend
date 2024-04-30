@@ -1,0 +1,33 @@
+.nearby-resto-parent {
+  display: flex;
+  margin-top: 20px;
+  overflow: hidden;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.restaurant-container-nearby {
+  /* border: solid 2px black; */
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.right-part-nearby {
+  width: 100%;
+
+  /* border: solid violet 2px; */
+  display: flex;
+  flex-direction: column;
+}
+.restaurant-info-nearby {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: solid 2px green; */
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

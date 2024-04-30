@@ -5,6 +5,7 @@ import Reviews from "../components/Reviews";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RestaurantMap from "../components/RestaurantMap";
 import { TailSpin } from "react-loader-spinner";
+import "../styles/RestaurantsDetails.css";
 
 const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null);

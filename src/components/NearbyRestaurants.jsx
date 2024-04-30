@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import restoProx from "../assets/restopop.webp";
 import Restaurants from "./Restaurants";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../styles/NearbyRestaurants.css";
+
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NearbyRestaurants = () => {
   // import  des states

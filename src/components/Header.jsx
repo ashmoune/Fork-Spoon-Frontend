@@ -1,6 +1,7 @@
 import Logo from "../assets/fork.png";
 import { Link, useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import "../styles/Header.css";
 
 const Header = ({ searchTerm, setSearchTerm, handleSearchButtonClick }) => {
   const location = useLocation();

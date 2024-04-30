@@ -7,6 +7,8 @@ import SearchBar from "../components/SearchBar";
 import NearbyRestaurants from "../components/NearbyRestaurants";
 import Restaurants from "../components/Restaurants";
 import { TailSpin } from "react-loader-spinner";
+import "../styles/Home.css";
+
 const Home = () => {
   // creation des states
   const [isLoading, setIsLoading] = useState(false);

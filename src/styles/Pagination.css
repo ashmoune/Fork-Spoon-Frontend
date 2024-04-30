@@ -1,0 +1,14 @@
+.pagination button {
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 10px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+}

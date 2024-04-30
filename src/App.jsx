@@ -16,6 +16,7 @@ import Home from "./Pages/Home";
 
 // import des components
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import RestaurantsDetails from "./Pages/RestaurantsDetails";
 
 library.add(
@@ -37,6 +38,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/restaurants/:id" element={<RestaurantsDetails />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
