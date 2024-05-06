@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { TailSpin } from "react-loader-spinner";
 import avatarImg from "../assets/avatar-img.jpg";
-import "../styles/Reviews.css";
+import "../styles/reviews.css";
 
 const Reviews = () => {
   const { id } = useParams();
