@@ -13,11 +13,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //import des pages
 import Home from "./Pages/Home";
+import RestaurantsDetails from "./Pages/RestaurantsDetails";
 
 // import des components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import RestaurantsDetails from "./Pages/RestaurantsDetails";
 
 library.add(
   faLocationPin,

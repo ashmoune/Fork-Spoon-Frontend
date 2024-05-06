@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import Reviews from "../components/Reviews";
+import Reviews from "../components/reviews";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RestaurantMap from "../components/RestaurantMap";
 import { TailSpin } from "react-loader-spinner";
