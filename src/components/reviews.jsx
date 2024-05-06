@@ -21,7 +21,9 @@ const Reviews = () => {
       setIsLoading(true);
 
       try {
-        const response = await axios.get(`http://localhost:3000/reviews/${id}`);
+        const response = await axios.get(
+          `https://site--fork-backend--rh6mx4gc4kyd.code.run/reviews/${id}`
+        );
         setReviews(response.data.reviews);
         console.log(response.data.reviews);
         setIsLoading(false);

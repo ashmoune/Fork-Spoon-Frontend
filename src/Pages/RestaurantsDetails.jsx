@@ -21,7 +21,7 @@ const RestaurantDetails = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:3000/restaurants/${id}`
+          `https://site--fork-backend--rh6mx4gc4kyd.code.run/restaurants/${id}`
         );
         console.log(response.data);
 

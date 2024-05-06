@@ -21,12 +21,15 @@ const Home = () => {
   const handleSearch = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`http://localhost:3000/locations`, {
-        params: {
-          text: searchTerm,
-          pageNumber: pageNum,
-        },
-      });
+      const response = await axios.get(
+        `https://site--fork-backend--rh6mx4gc4kyd.code.run/locations`,
+        {
+          params: {
+            text: searchTerm,
+            pageNumber: pageNum,
+          },
+        }
+      );
       setResults(response.data.restaurants.data);
       console.log(response.data.restaurants.data);
       setShowMap(true);

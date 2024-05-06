@@ -56,11 +56,14 @@ const NearbyRestaurants = () => {
 
       const fetchRestaurants = async () => {
         try {
-          const response = await axios.get(`http://localhost:3000/locations`, {
-            params: {
-              text: cityName,
-            },
-          });
+          const response = await axios.get(
+            `https://site--fork-backend--rh6mx4gc4kyd.code.run/locations`,
+            {
+              params: {
+                text: cityName,
+              },
+            }
+          );
           setRestaurants(response.data.restaurants.data);
           console.log(response.data.restaurants);
         } catch (error) {
