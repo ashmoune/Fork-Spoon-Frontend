@@ -4,7 +4,7 @@
 
 Ce projet personnel est une réplique du site web The Fork, où vous pouvez effectuer des recherches sur des restaurants en fonction de leur ville. Ce projet a été developpé avec React pour le Front-End et Node.js pour le Back-End.
 
-![capture d'écran](/src/assets/TheFork.png)
+![capture d'écran](./src/assets/TheFork.png)
 
 Il est composé des pages suivantes:
 
